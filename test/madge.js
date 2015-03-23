@@ -4,11 +4,11 @@ var should = require('should'),
 describe('Madge', function () {
 	describe('source argument', function () {
 		it('should handle a string as argument', function () {
-			madge('test/files/cjs/normal/a.js').obj().should.eql({ a: [ 'sub/b' ] });
+			madge('files/cjs/normal/a.js').obj().should.eql({ a: [ 'sub/b' ] });
 		});
 
 		it('should handle an array as argument', function () {
-			madge(['test/files/cjs/normal/a.js']).obj().should.eql({ a: [ 'sub/b' ] });
+			madge(['files/cjs/normal/a.js']).obj().should.eql({ a: [ 'sub/b' ] });
 		});
 
 		it('should handle a object as argument', function () {
@@ -22,17 +22,17 @@ describe('Madge', function () {
 
 	describe('paths', function () {
 		it('should be ok with relative paths', function () {
-			madge(['test/files/cjs/normal/a.js']).obj().should.eql({ a: [ 'sub/b' ] });
+			madge(['files/cjs/normal/a.js']).obj().should.eql({ a: [ 'sub/b' ] });
 		});
 	});
 
 	describe('basedir', function () {
 		it('should use common dir when given multiple paths (cjs)', function () {
-			madge([__dirname + '/files/cjs/multibase/1', __dirname + '/files/cjs/multibase/2']).obj().should.eql({ '1/a': [], '2/b': [] });
+			madge(['files/cjs/multibase/1', __dirname + '/files/cjs/multibase/2']).obj().should.eql({ '1/a': [], '2/b': [] });
 		});
 
 		it('should use common dir when given multiple paths (amd)', function () {
-			madge([__dirname + '/files/amd/multibase/foo', __dirname + '/files/amd/multibase/bar'], {
+			madge(['files/amd/multibase/foo', __dirname + '/files/amd/multibase/bar'], {
 				format: 'amd'
 			}).obj().should.eql({ 'foo/a': [], 'bar/b': [] });
 		});
