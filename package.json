@@ -38,7 +38,6 @@
     "detective": "0.1.1",
     "graphviz": "0.0.7",
     "react-tools": "0.12.1",
-    "resolve": "0.2.3",
     "uglify-js": "1.2.6",
     "walkdir": "0.0.5"
   },
